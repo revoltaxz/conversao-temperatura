@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: web
@@ -17,7 +16,6 @@ spec:
           image: revoltaxz/conversao-temperatura:1.0.0
           ports:
             - containerPort: 8080
-
 ---
 apiVersion: v1
 kind: Service
