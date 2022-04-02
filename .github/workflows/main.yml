@@ -32,8 +32,7 @@ jobs:
     needs: CI
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout on Github
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
       - name: Kubernetes set config
         uses: Azure/k8s-set-context@v1.1
@@ -44,7 +43,7 @@ jobs:
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v1.3
         with:
-          images: revoltaxz/conversao-temperatura:${{ github.run_number}}.0.0
+          images: revoltaxz/conversao-temperatura:${{ github.run_number}}
           manifests: |
             k8s/deployment.yaml
 
